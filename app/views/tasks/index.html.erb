@@ -1,0 +1,14 @@
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+      <%= "#{task.description} | #{task.created_at.to_s.split[0]} | #{task.completed ? 'is complete' : 'is incomplete'}" %>
+    </li>
+
+    <%= link_to "Complete this task", mark_task_path(task) %>
+    <%= link_to "Delete this task", task_path(task), method: :delete %>
+  <% end %>
+</ul>
+
+<%= link_to "Add a new task", new_task_path%>
+
+
